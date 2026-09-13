@@ -11,18 +11,18 @@ categories: RobloxStudio
 {: .notice}
 
 <span class="color-control">Workspace</span> <br>
-└─<span class="color-string">Keycaps</span> -- 모델 인스턴스 <br>
-　 　├─<span class="color-function">Script</span> -- Keycap 생성 스크립트 <br>
-　 　└─<span class="color-function">Part </span> -- Gizmo 파트
+└─<span class="color-string">Keycaps</span> : 모델 인스턴스 <br>
+　 　├─<span class="color-function">Script</span> : Keycap 생성 스크립트 <br>
+　 　└─<span class="color-function">Part </span> : Gizmo 파트
 
 <span class="color-control">ServerScriptService</span> <br>
-└─<span class="color-string">Script</span> -- 플레이어에 감지 Part 추가 스크립트
+└─<span class="color-string">Script</span> : 플레이어에 감지 Part 추가 스크립트
 
 <span class="color-control">ServerStorage</span> <br>
-└─<span class="color-string">Keycap</span> -- 키캡 원본 저장 <br>
+└─<span class="color-string">Keycap</span> : 키캡 원본 저장 <br>
 　 　├─<span class="color-function">Sound</span> <br>
-　 　├─<span class="color-function">Script</span> -- 사운드, 충돌 감지 스크립트 <br>
-　 　└─<span class="color-function">SurfaceGui - Frame - TextLabel</span> -- 키캡 알파벳
+　 　├─<span class="color-function">Script</span> : 사운드, 충돌 감지 스크립트 <br>
+　 　└─<span class="color-function">SurfaceGui - Frame - TextLabel</span> : 키캡 알파벳
 
 <br>
 
