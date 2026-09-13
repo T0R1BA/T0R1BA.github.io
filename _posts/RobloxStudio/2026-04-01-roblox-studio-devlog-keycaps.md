@@ -24,7 +24,10 @@ categories: RobloxStudio
 　 　├─<span class="color-function">Script</span> <br>
 　 　└─<span class="color-function">SurfaceGui - Frame - TextLabel</span>
 
-Workspace Script
+<br>
+
+<span class="color-function">Workspace Script</span>
+
 ```lua
 local Keycaps = script.Parent
 local Keycap = game.ServerStorage.Keycap -- 원본은 Storage에 넣어 원본 유지
@@ -61,7 +64,10 @@ Gizmo.CanTouch = false
 Gizmo.CanQuery = false
 ```
 
-ServerScriptService Script
+<br>
+
+<span class="color-string">ServerScriptService Script</span>
+
 ```lua
 local Players = game:GetService("Players")
 
@@ -90,7 +96,10 @@ Players.PlayerAdded:Connect(function(Player)
 end)
 ```
 
-ServerStorage Script
+<br>
+
+<span class="color-function">ServerStorage Script</span>
+
 ```lua
 local Part = script.Parent
 local OriginalPosition = Part.Position
