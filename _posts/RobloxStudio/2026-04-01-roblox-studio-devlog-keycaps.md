@@ -23,10 +23,15 @@ categories: RobloxStudio
 <br>
 
 <span class="color-control">ServerStorage</span> <br>
-└─<span class="color-string">Keycap</span> : 키캡 원본 저장 <br>
-　 　├─<span class="color-function">Sound</span> <br>
-　 　├─<span class="color-function">Script</span> : 키캡 사운드, 충돌 감지 스크립트 <br>
-　 　└─<span class="color-function">SurfaceGui - Frame - TextLabel</span> : 키캡 표면에 알파벳 적용
+└─<span class="color-string">Keycap</span> : 키캡 원본 메시파트 <br>
+　 　├─<span class="color-function">Sound</span> : 키캡이 밟혔을 때 낼 사운드 <br>
+　 　└─<span class="color-function">SurfaceGui - Frame - TextLabel</span> : 키캡 표면에 알파벳 적용할 텍스트레이블
+
+<br>
+
+<span class="color-control">StarterPlayer</span> <br>
+└─<span class="color-string">StarterPlayerScripts</span> <br>
+　 　└─<span class="color-function">LocalScript</span> : 키캡의 사운드, 움직임, 충돌 감지 로컬 스크립트
 
 <br>
 
@@ -102,12 +107,16 @@ end)
 
 <br>
 
-<span class="RSST-VALUE">ServerStorage - Keycap - Script</span>
+<span class="RSST-VALUE">StarterPlayer - StarterPlayerScripts - LocalScript</span>
 
 ```lua
-local Part = script.Parent
-local OriginalPosition = Part.Position
-local Sound = Part.Sound
+-- 해당 코드를 LocalScript로 만들어 플레이어 개별로 키캡과 상호작용하게 만들고, 서버를 거치지 않아 키캡이 반응하는 속도를 빠르게 함
+
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService") -- 키캡 움직임을 부드럽게 처리하기 위해 사용
+
+local Player = Players.LocalPlayer -- 현재 LocalScript를 실행하고 있는 플레이어
+local Keycaps = workspace:WaitForChild("Keycaps")
 
 local CLICK_SOUND_IDS = {
 	"rbxassetid://113108830240353",
@@ -115,17 +124,50 @@ local CLICK_SOUND_IDS = {
 	"rbxassetid://96591611478915",
 }
 
-Part.Touched:Connect(function(Hit)
-	if Hit.Name == "Detector" then
-		Part.Position = OriginalPosition - Vector3.new(0, 1, 0)
+local OriginalPositions = {} -- 키캡의 원래 위치를 기록해 놓을 테이블
+local Pressed = {} -- 현재 눌려있는 키캡을 기록해 놓을 테이블
+
+local PressTweenInfo = TweenInfo.new(0.05, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) -- 0.05초 동안 Quad+Out(빠르게 움직여 천천히 멈춤)
+local ReleaseTweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+local function GetOriginalPosition(Keycap)
+	if not OriginalPositions[Keycap] then OriginalPositions[Keycap] = Keycap.Position end
+
+	return OriginalPositions[Keycap]
+end
+
+local function Press(Keycap)
+	if Pressed[Keycap] then return end
+
+	Pressed[Keycap] = true
+	local OriginalPosition = GetOriginalPosition(Keycap)
+	local PressTween = TweenService:Create(Keycap, PressTweenInfo, {Position = OriginalPosition - Vector3.new(0, 1, 0)})
+	PressTween:Play()
+
+	local Sound = Keycap:FindFirstChild("Sound")
+	if Sound then
 		Sound.SoundId = CLICK_SOUND_IDS[math.random(#CLICK_SOUND_IDS)]
 		Sound:Play()
 	end
+end
+
+local function Release(Keycap)
+	if not Pressed[Keycap] then return end
+
+	Pressed[Keycap] = nil
+	local OriginalPosition = GetOriginalPosition(Keycap)
+	local ReleaseTween = TweenService:Create(Keycap, ReleaseTweenInfo, {Position = OriginalPosition})
+	ReleaseTween:Play()
+end
+
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Detector = Character:WaitForChild("Detector")
+
+Detector.Touched:Connect(function(Hit)
+	if Hit.Parent == Keycaps then Press(Hit) end
 end)
 
-Part.TouchEnded:Connect(function(Hit)
-	if Hit.Name == "Detector" then
-		Part.Position = OriginalPosition
-	end
+Detector.TouchEnded:Connect(function(Hit)
+	if Hit.Parent == Keycaps then Release(Hit) end
 end)
 ```
