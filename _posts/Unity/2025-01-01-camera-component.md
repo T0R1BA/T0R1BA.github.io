@@ -137,7 +137,7 @@ X, Y, W(width), H(height)옵션을 통해 해당 카메라가 화면에서 보�
 
 카메라를 기준으로 가까운 오브젝트에 의해 가려져 보이지 않는 오브젝트는 렌더링 하지 않는 기능입니다.
 
-<a href="https://scruffy-potato.github.io/unity/occlusion-culling-frustum-culling/" target="_blank" class="color-function">오클루전 컬링 페이지</a>
+<a href="https://CozyCozy4Tato.github.io/unity/occlusion-culling-frustum-culling/" target="_blank" class="color-function">오클루전 컬링 페이지</a>
 
 
 
