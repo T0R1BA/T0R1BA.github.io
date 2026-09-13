@@ -11,22 +11,26 @@ categories: RobloxStudio
 {: .notice}
 
 <span class="color-control">Workspace</span> <br>
-└─<span class="color-string">Keycaps</span> : 모델 인스턴스 <br>
-　 　├─<span class="color-function">Script</span> : Keycap 생성 스크립트 <br>
-　 　└─<span class="color-function">Part </span> : Gizmo 파트
+└─<span class="color-string">Keycaps</span> : 키캡들을 모아둘 모델 <br>
+　 　├─<span class="color-function">Script</span> : 키캡 생성 스크립트 <br>
+　 　└─<span class="color-function">Part </span> : 기즈모 파트
+
+<br>
 
 <span class="color-control">ServerScriptService</span> <br>
-└─<span class="color-string">Script</span> : 플레이어에 감지 Part 추가 스크립트
+└─<span class="color-string">Script</span> : 플레이어에 감지 파트를 추가할 스크립트
+
+<br>
 
 <span class="color-control">ServerStorage</span> <br>
 └─<span class="color-string">Keycap</span> : 키캡 원본 저장 <br>
 　 　├─<span class="color-function">Sound</span> <br>
-　 　├─<span class="color-function">Script</span> : 사운드, 충돌 감지 스크립트 <br>
-　 　└─<span class="color-function">SurfaceGui - Frame - TextLabel</span> : 키캡 알파벳
+　 　├─<span class="color-function">Script</span> : 키캡 사운드, 충돌 감지 스크립트 <br>
+　 　└─<span class="color-function">SurfaceGui - Frame - TextLabel</span> : 키캡 표면에 알파벳 적용
 
 <br>
 
-<span class="RSST-VALUE">Workspace Script</span>
+<span class="RSST-VALUE">Workspace - Keycaps - Script</span>
 
 ```lua
 local Keycaps = script.Parent
@@ -66,7 +70,7 @@ Gizmo.CanQuery = false
 
 <br>
 
-<span class="RSST-VALUE">ServerScriptService Script</span>
+<span class="RSST-VALUE">ServerScriptService - Script</span>
 
 ```lua
 local Players = game:GetService("Players")
@@ -98,7 +102,7 @@ end)
 
 <br>
 
-<span class="RSST-VALUE">ServerStorage Script</span>
+<span class="RSST-VALUE">ServerStorage - Keycap - Script</span>
 
 ```lua
 local Part = script.Parent
