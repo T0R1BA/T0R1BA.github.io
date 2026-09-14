@@ -25,90 +25,6 @@ end)
 
 
 
-# 📌 Function
-{: .notice}
-
-```lua
-local function <Function Name>()
-	-- Fucntion Body--
-end
-```
-
-
-
-
-# 📌 Local, Global
-{: .notice}
-
-```lua
-local <Variable Name> = <Value> -- local
-<Variable Name> = <Value> -- Global
-```
-
-
-
-
-# 📌 + String +
-{: .notice}
-
-```lua
-local <Variable Name_1> = <Value>
-local <Variable Name_2> = <Value>
-local <Variable Name_3> = game.StarterGui.<ScreenGui Instance Name>.<TextLabel Instance Name>
-
-<Variable Name_3>.Text = <Variable Name_1> .. "<String Value>" .. <Variable Name_2>
-```
-
-
-
-
-# 📌 for
-{: .notice}
-
-```lua
-for i = <Start Value>, <End Value>, <Step Value> do
-    --For Body--
-end
-```
-
-
-
-
-# 📌 for i, in pairs
-{: .notice}
-
-```lua
-local <Table Name with an s> = {
-	game.Workspace.<Instance Name>,
-	game.Workspace.<Instance Name>,
-	game.Workspace.<Instance Name>
-}
-
-for i, <Table Name> in pairs(<Table Name with an s>) do
-	<Table Name>.Touched:Connect(function(Hit)
-		if Hit.Parent:FindFirstChild("Humanoid") and then
-			<Table Name> = <Value>
-		end
-	end)
-end
-```
-
-
-
-
-# 📌 Repeat
-{: .notice}
-
-```lua
-repeat
-	-- Repeat Code --
-	task.wait(<Wait Time>)
-until <Bool Value>
-```
-
-
-
-
 # 📌 IsA, GetChildren
 {: .notice}
 
@@ -179,17 +95,6 @@ end)
 <Variable Name>.Activated:Connect(function()
 	-- Tool 장착 상태로 화면 클릭(탭) 시
 end)
-```
-
-
-
-
-# 📌 Script에서 Instance 접근
-{: .notice}
-
-```lua
-game. -- Explorer 접근
-script. -- Explorer 내 해당 Script 기준으로 접근
 ```
 
 
