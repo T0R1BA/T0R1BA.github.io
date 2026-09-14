@@ -7,10 +7,18 @@ excerpt: "Array Table, ipairs, Dictionary Table, pairs"
 
 
 
-Table? luau에서 Array와 Dictionary 역할을 동시에 함
+# 📌 Table?
+{: .notice}
+
+luau에서 Array와 Dictionary 형태로 사용
+
+
+
 
 # 📌 Array Table, ipairs
 {: .notice}
+
+<br>
 
 <span class="RSST-VALUE">Array Table</span>
 
@@ -73,6 +81,8 @@ print(Fruits[4]) -- Durian -- 4번째 Key와 Value는 남아있음
 
 # 📌 Dictionary Table, pairs
 {: .notice}
+
+<br>
 
 <span class="RSST-VALUE">Dictionary Table</span>
 
