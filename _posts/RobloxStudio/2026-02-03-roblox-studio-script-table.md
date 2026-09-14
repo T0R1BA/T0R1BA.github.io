@@ -12,6 +12,8 @@ Table? luau에서 Array와 Dictionary 역할을 동시에 함
 # 📌 Array Table, ipairs
 {: .notice}
 
+<span class="RSST-VALUE">Array Table</span>
+
 ```lua
 -- 인덱스는 1부터 시작, [Index]를 Key로 사용하는 딕셔너리 형태
 local Array = {} -- 테이블 선언, 딕셔너리 형태이기 때문에 배열의 크기를 처음에 지정하지 않아도 됨
@@ -48,9 +50,13 @@ print(Array)
 --		["Price"] = 20000
 --	}
 --}
+```
 
+<br>
 
-print("----------ipairs----------")
+<span class="RSST-VALUE">ipairs</span>
+
+```lua
 -- ipairs : 배열을 순차적으로 순회할 때 사용
 -- 배열 형태여야 함 : 키 값이 [1], [2], [3] ... 인 딕셔너리
 -- 중간에 remove가 아닌 nil로 Key, Value를 삭제했다면 그 다음으로 넘어가지 않고 순회가 끝남
@@ -63,8 +69,12 @@ print(Fruits[4]) -- Durian -- 4번째 Key와 Value는 남아있음
 ```
 
 
+
+
 # 📌 Dictionary Table, pairs
 {: .notice}
+
+<span class="RSST-VALUE">Dictionary Table</span>
 
 ```lua
 local Parts = {} -- 테이블 선언
@@ -107,9 +117,13 @@ for Key, Value in pairs(Parts) do
 	Length += 1
 end
 print("Parts.Length:", Length) -- Parts.Length: 3
+```
 
+<br>
 
-print("----------pairs----------")
+<span class="RSST-VALUE">pairs</span>
+
+```lua
 -- pairs : Table의 Key, Value를 순회할 때 사용
 -- 순회 순서는 보장되지 않음
 -- 배열 Table에서도 사용할 수 있지만, 배열은 일반적으로 ipairs()를 사용, table.insert()와 table.remove()를 이용해 Index를 연속적으로 관리하기 때문
